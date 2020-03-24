@@ -4,8 +4,13 @@ jobs:
     SIMPLE:
         steps:
             - echo: echo test
-        requires: [~pr, ~commit]
-    CHANDRA:
+        requires: [~pr, ~commit]     
+    Terraform:
+        steps:
+            - echo: echo test
+        requires:
+            - ~commit
+    Check:
         steps:
             - set-unstable: |
                 if [ "$COVERAGE" -lt 95 ]
